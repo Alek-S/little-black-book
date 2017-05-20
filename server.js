@@ -1,11 +1,9 @@
 'use strict';
 
-
 //==MODULES==
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
-
 
 
 //==Express Setup==
@@ -20,7 +18,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 
-//===Static Files, CSS,Images,Fonts===
+//===Static Files, CSS, Images, Fonts===
 app.use(express.static('./public'));
 
 
@@ -33,7 +31,7 @@ app.set('view engine', 'handlebars');
 require('./controllers/burgers_controller.js')(app);
 
 
-//==Start Server==
+//==Sync Database  & Start Server==
 app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
 });
