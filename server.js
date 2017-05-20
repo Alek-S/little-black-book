@@ -8,9 +8,7 @@ const handlebars = require('express-handlebars');
 
 //==Express Setup==
 const app = express();
-app.set('port', (process.env.PORT || 5000));
-
-const db = require('./m2');
+let PORT = process.env.PORT || 5000;
 
 //===Parsing===
 app.use(bodyParser.json());
@@ -32,8 +30,14 @@ app.set('view engine', 'handlebars');
 // require('./controllers/api_routes.js')(app);
 // require('./controllers/html_routes.js')(app);
 
+// Requiring our models for syncing
+var db = require("./models");
 
 //==Sync Database  & Start Server==
-app.listen(app.get('port'), function() {
-	console.log('Node app is running on port', app.get('port'));
+
+// Syncing our sequelize models and then starting our express app
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
