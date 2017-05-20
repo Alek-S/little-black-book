@@ -9,8 +9,8 @@ let Event = connection.define('Event',
 		what: Sequelize.STRING,
 		when: Sequelize.DATE,
 		where: Sequelize.STRING,
-		rating: Sequelize.INTEGER,
-	},
+		rating: Sequelize.INTEGER
+	}
 );
 
 Event.sync(); 

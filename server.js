@@ -10,6 +10,7 @@ const handlebars = require('express-handlebars');
 const app = express();
 app.set('port', (process.env.PORT || 5000));
 
+const db = require('./m2');
 
 //===Parsing===
 app.use(bodyParser.json());
@@ -28,7 +29,8 @@ app.set('view engine', 'handlebars');
 
 
 //===Routes===
-require('./controllers/burgers_controller.js')(app);
+// require('./controllers/api_routes.js')(app);
+// require('./controllers/html_routes.js')(app);
 
 
 //==Sync Database  & Start Server==
