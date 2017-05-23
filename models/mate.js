@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
 					});
 
 					Mate.hasMany(models.Event, {
-						onDelete: 'cascade'
 					});
 
 				}
