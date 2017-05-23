@@ -1,11 +1,13 @@
 'use strict';
-const path = require("path");
+const path = require('path');
 
 module.exports = function(app) {
 
 	//===HTML ROUTES===
-	app.get('/', (req,res)=>{
-		res.send('blah');
+	
+	//index will be the login splash page
+	app.get('/', function(req, res) {
+		res.sendFile(path.join(__dirname, '../public/index.html'));
 	});
 
 };
