@@ -1,10 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	let Mate = sequelize.define('Mate', {
-		what: DataTypes.STRING,
-		when: DataTypes.DATE,
-		where: DataTypes.STRING,
-		rating: DataTypes.INTEGER
+		name: DataTypes.STRING,
+		platform: DataTypes.STRING,
 	},
 		{
 			classMethods: {
