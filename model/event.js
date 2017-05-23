@@ -1,6 +1,4 @@
-/**
- * Created by calleyoneil on 5/20/17.
- */
+
 module.exports = function(sequelize, DataTypes) {
     var Event = sequelize.define("Event", {
             // Giving the Event model a name of type STRING
