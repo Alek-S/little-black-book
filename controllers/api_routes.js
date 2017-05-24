@@ -44,6 +44,19 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/api/password/:password/:userid', (req,res)=>{
+		let passwordToCheck  = req.params.password;
+		
+		db.User.findOne({
+			attribute: ['password'],
+			where: {id: req.params.userid}
+		}).then( (account)=>{
+			bcrypt.compare(passwordToCheck, account.password, (err, result) => {
+	    		res.send(result); //true false if password works
+			});
+		});
+	});
+
 	//create new event
 	// app.post('/api/event/:what/:when/:where/:rating/:UserID/:MateID', (req, res)=>{
 	// 	db.Mate.create({
