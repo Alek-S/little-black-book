@@ -4,6 +4,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
+const session = require('express-session');
 
 
 //==Express Setup==
@@ -21,6 +22,12 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 //===Static Files, CSS, Images, Fonts===
 app.use(express.static('./public'));
 
+
+//===Sessions===
+app.use(session({
+	secret: 'sandbox', 
+	cookie: { maxAge: 60000 } //20 minutes in milliseconds
+}));
 
 //===Express-Handlebars===
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
