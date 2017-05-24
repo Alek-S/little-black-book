@@ -34,6 +34,15 @@ module.exports = function(app) {
 		});
 	});
 
+	//delete mate
+	app.delete('/api/mate/:id', (req, res)=>{
+		db.Mate.destroy({
+			where: { id: req.params.id }
+		}).then( (result)=>{
+			res.json(result);
+		});
+	});
+
 	//create new event
 	// app.post('/api/event/:what/:when/:where/:rating/:UserID/:MateID', (req, res)=>{
 	// 	db.Mate.create({
