@@ -28,8 +28,8 @@ app.set('view engine', 'handlebars');
 
 
 //===Routes===
-// require('./controllers/api_routes.js')(app);
-// require('./controllers/html_routes.js')(app);
+require('./controllers/api_routes.js')(app);
+require('./controllers/html_routes.js')(app);
 
 
 //===Models===
@@ -37,7 +37,7 @@ let db = require('./models');
 
 
 //==Sync Database  & Start Server==
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
 		console.log('App listening on PORT ' + PORT);
 	});
