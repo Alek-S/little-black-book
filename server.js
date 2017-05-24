@@ -1,16 +1,14 @@
 'use strict';
 
-
 //==MODULES==
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 
 
-
 //==Express Setup==
 const app = express();
-app.set('port', (process.env.PORT || 5000));
+let PORT = process.env.PORT || 5000;
 
 
 //===Parsing===
@@ -20,7 +18,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 
-//===Static Files, CSS,Images,Fonts===
+//===Static Files, CSS, Images, Fonts===
 app.use(express.static('./public'));
 
 
@@ -30,10 +28,17 @@ app.set('view engine', 'handlebars');
 
 
 //===Routes===
-require('./controllers/burgers_controller.js')(app);
+// require('./controllers/api_routes.js')(app);
+// require('./controllers/html_routes.js')(app);
 
 
-//==Start Server==
-app.listen(app.get('port'), function() {
-	console.log('Node app is running on port', app.get('port'));
+//===Models===
+let db = require('./models');
+
+
+//==Sync Database  & Start Server==
+db.sequelize.sync({ force: true }).then(function() {
+	app.listen(PORT, function() {
+		console.log('App listening on PORT ' + PORT);
+	});
 });

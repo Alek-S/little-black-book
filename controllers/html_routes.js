@@ -1,13 +1,13 @@
 'use strict';
-
-
+const path = require('path');
 
 module.exports = function(app) {
 
-//===HTML ROUTES===
+	//===HTML ROUTES===
 	
-	//grab all burgers and use them for index template
-	app.get('/', function (req, res) {
-
+	//index will be the login splash page
+	app.get('/', function(req, res) {
+		res.sendFile(path.join(__dirname, '../public/index.html'));
+	});
 
 };
