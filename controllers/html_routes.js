@@ -5,19 +5,17 @@ module.exports = function(app) {
 
 	//===HTML ROUTES===
 	
-	//index will be the login splash page
-	// app.get('/', function(req, res) {
-	// 	res.sendFile(path.join(__dirname, '../public/index.html'));
-	// });
-
-	app.get('/',function(req,res){
-		if(!req.session.user){
-			console.log('not logged in yet');
-		}
-
+	// index will be the login splash page
+	app.get('/', function(req, res) {
 		console.log(`Session ID: ${req.session.id}`);
 		console.log( JSON.stringify(req.session,null,2));
-		res.json(req.session);
+
+		if(!req.session.loggedIn){
+			res.sendFile(path.join(__dirname, '../public/login.html'));
+		}else{
+			res.send('IN!');
+		}
 	});
+
 
 };
