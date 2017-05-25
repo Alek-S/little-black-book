@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>
+</head>
+<body>
+<header>
+    <h1>User's Page</h1>
+</header>
+<!-- container for the header-->
+<div class="container">
+    <!--Clicking on Logo will redirect to Home Page-->
+    <h2 class="logo"><a href="login.html" target="_parent">Little Black Book</a></h2>
+<!--container for the Top 5 Mates-->
+    <h1>My Top Five</h1>
+
+    <p class="description">
+        Open a new chapter in your love life
+    </p>
+
+    <ul class="accordion">
+        <!-- Mate 1 -->
+        <li>
+            <a class="toggle" href="javascript:void(0);">Mate #1</a>
+            <ul class="inner">
+                <li>
+                    <a href="#" class="toggle">Events</a>
+                    <div class="inner">
+                        <p>
+                        <ul>
+                            <li>What</li>
+                            <li>When</li>
+                            <li>Where</li>
+                            <li>Rating</li>
+                        </ul>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!-- Mate 2 -->
+        <li>
+            <a class="toggle" href="javascript:void(0);">Mate #2</a>
+            <ul class="inner">
+                <li>
+                    <a href="#" class="toggle">Events</a>
+                    <div class="inner">
+                        <p>
+                        <ul>
+                            <li>What</li>
+                            <li>When</li>
+                            <li>Where</li>
+                            <li>Rating</li>
+                        </ul>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Mate 3 -->
+       <li>
+            <a class="toggle" href="javascript:void(0);">Mate #3</a>
+            <ul class="inner">
+                <li>
+                    <a href="#" class="toggle">Events</a>
+                    <div class="inner">
+                        <p>
+                            <ul>
+                        <li>What</li>
+                        <li>When</li>
+                        <li>Where</li>
+                        <li>Rating</li>
+                            </ul>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+       </li>
+        <!-- Mate 4 -->
+        <li>
+            <a class="toggle" href="javascript:void(0);">Mate #4</a>
+            <ul class="inner">
+                <li>
+                    <a href="#" class="toggle">Events</a>
+                    <div class="inner">
+                        <p>
+                        <ul>
+                            <li>What</li>
+                            <li>When</li>
+                            <li>Where</li>
+                            <li>Rating</li>
+                        </ul>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!-- Mate #5 -->
+        <li>
+            <a class="toggle" href="javascript:void(0);">Mate #5</a>
+            <ul class="inner">
+                <li>
+                    <a href="#" class="toggle">Events</a>
+                    <div class="inner">
+                        <p>
+                        <ul>
+                            <li>What</li>
+                            <li>When</li>
+                            <li>Where</li>
+                            <li>Rating</li>
+                        </ul>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <!--Menu Bar?-->
+        <nav>
+            <h1>Menu</h1>
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Mates</a></li>
+                <li><a href="#">Points</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+
+    <!-- footer -->
+      <footer> Copyright &copy; Little Black Book.com </footer>
+
+        <!--place holder social media -->
+
+
+
+    <!-- Social Media Links -->
+
+
+
+</div>
+<!-- Accordion script (needs to be added to script.js)-->
+<script>
+    $('.toggle').click(function(e) {
+        e.preventDefault();
+
+        var $this = $(this);
+
+        if ($this.next().hasClass('show')) {
+            $this.next().removeClass('show');
+            $this.next().slideUp(350);
+        } else {
+            $this.parent().parent().find('li .inner').removeClass('show');
+            $this.parent().parent().find('li .inner').slideUp(350);
+            $this.next().toggleClass('show');
+            $this.next().slideToggle(350);
+        }
+    });
+</script>
+
+</body>
+</html>
