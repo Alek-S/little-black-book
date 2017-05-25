@@ -44,14 +44,22 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get('/api/password/:password/:userid', (req,res)=>{
-		let passwordToCheck  = req.params.password;
+	app.post('/api/password/', (req,res)=>{
+		let passwordToCheck  = req.body.password;
+		let email = req.body.email;
 		
 		db.User.findOne({
 			attribute: ['password'],
-			where: {id: req.params.userid}
+			where: {email: email}
 		}).then( (account)=>{
 			bcrypt.compare(passwordToCheck, account.password, (err, result) => {
+				console.log(result);
+				if(result === true){
+					req.session.loggedIn = true;
+					console.log(req.session);
+				}else{
+					req.session.destroy;
+				}
 	    		res.send(result); //true false if password works
 			});
 		});
