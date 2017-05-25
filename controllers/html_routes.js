@@ -7,7 +7,7 @@ module.exports = function(app) {
 	
 	// index will be the login splash page
 	app.get('/', function(req, res) {
-		res.sendFile(path.join(__dirname, '../public/index.html'));
+		res.sendFile(path.join(__dirname, '../public/login.html'));
 	});
 
 	// app.get('/',function(req,res){
