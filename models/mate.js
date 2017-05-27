@@ -1,9 +1,34 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	let Mate = sequelize.define('Mate', {
-		firstName: DataTypes.STRING,
-		lastName: DataTypes.STRING,
-		platform: DataTypes.STRING,
+		firstName: {
+			type: DataTypes.STRING,
+			validate: {
+				len: {
+					args: [3, 128],
+					msg: 'firstName address must be between 3 and 128 characters in length'
+				},
+				notNull: true
+			}
+		},
+		lastName: {
+			type: DataTypes.STRING,
+			validate: {
+				len: {
+					args: [3, 128],
+					msg: 'lastName address must be between 3 and 128 characters in length'
+				},
+			}
+		},
+		platform: {
+			type: DataTypes.STRING,
+			validate: {
+				len: {
+					args: [3, 50],
+					msg: 'platform address must be between 3 and 50 characters in length'
+				},
+			}
+		},
 	},
 		{
 			classMethods: {
