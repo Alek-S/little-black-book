@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	let Mate = sequelize.define('Mate', {
-		name: DataTypes.STRING,
+		firstName: DataTypes.STRING,
+		lastName: DataTypes.STRING,
 		platform: DataTypes.STRING,
 	},
 		{

@@ -2,9 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
 	let User = sequelize.define('User', {
 		email: DataTypes.STRING,
+		firstName: DataTypes.STRING,
+		lastName: DataTypes.STRING,
 		password: DataTypes.STRING,
 		gender: DataTypes.STRING,
-		age: DataTypes.INTEGER
+		age: DataTypes.INTEGER,
+		state: DataTypes.STRING,
+		zip: DataTypes.INTEGER
 	},
 		{
 			classMethods: {
