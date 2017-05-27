@@ -5,11 +5,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const session = require('express-session');
-
+const helmet = require('helmet');
+const compression = require('compression');
 
 //==Express Setup==
 const app = express();
 let PORT = process.env.PORT || 5000;
+
+//===Secure HTTP Headers===
+app.use(helmet());
+
+//===Compress All Requests===
+app.use(compression());
 
 
 //===Parsing===
