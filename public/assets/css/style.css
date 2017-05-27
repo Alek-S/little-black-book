@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
 html {
     background:url('../images/book.jpg')  no-repeat center center fixed;
     background-size: cover;
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     color: #444;
 
     /*Set up proportionate scaling */
@@ -55,7 +56,12 @@ html {
     margin-top: -140px;
     margin-left: -170px;
 }
-.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; padding-bottom: 15px;}
+.login h1 { 
+    color: #fff;
+    font-size: 1.15em; 
+    text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+    letter-spacing:1px; text-align:center; 
+    padding-bottom: 15px;}
 
 input {
     width: 100%;
@@ -64,6 +70,7 @@ input {
     border: none;
     outline: none;
     padding: 10px;
+    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -88,3 +95,33 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 .btn-block { width: 100%; display:block; }
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+#errorMsg{
+    display: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    background-color: #ff4d4d;
+    color: #ffe6e6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/*placeholder text color*/
+input::-webkit-input-placeholder {
+color: #d9d9d9;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #d9d9d9;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #d9d9d9;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #d9d9d9;  
+}

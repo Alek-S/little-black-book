@@ -45,24 +45,34 @@ module.exports = function(app) {
 	});
 
 	app.post('/api/password/', (req,res)=>{
+		let emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		let passwordToCheck  = req.body.password;
 		let email = req.body.email;
 		
-		db.User.findOne({
-			attribute: ['password'],
-			where: {email: email}
-		}).then( (account)=>{
-			bcrypt.compare(passwordToCheck, account.password, (err, result) => {
-				console.log(result);
-				if(result === true){
-					req.session.loggedIn = true;
-					console.log(req.session);
-				}else{
-					req.session.destroy;
-				}
-	    		res.send(result); //true false if password works
+		//if email is actually an email
+		if(emailRegEx.test(email) ){
+			db.User.findOne({
+				attribute: ['id','firstName','password'],
+				where: {email: email}
+			}).then( (account)=>{
+				bcrypt.compare(passwordToCheck, account.password, (err, result) => {
+					if(result === true){
+						req.session.loggedIn = true;
+						req.session.userId = account.id;
+						req.session.email = account.email;
+						req.session.firstName = account.firstName;
+						console.log(req.session);
+					}else{
+						req.session.destroy;
+					}
+					res.send(result); //true false if password works
+				});
 			});
-		});
+		}else{
+			//someone being shady with the emails
+			res.send(false);
+		}
+
 	});
 
 	//create new event

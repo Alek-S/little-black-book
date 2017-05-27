@@ -13,7 +13,7 @@ module.exports = function(app) {
 		if(!req.session.loggedIn){
 			res.sendFile(path.join(__dirname, '../public/login.html'));
 		}else{
-			res.send('IN!');
+			res.sendFile(path.join(__dirname, '../public/user.html'));
 		}
 	});
 
