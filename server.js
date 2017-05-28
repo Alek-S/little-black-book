@@ -15,7 +15,7 @@ let PORT = process.env.PORT || 5000;
 //===Secure HTTP Headers===
 app.use(helmet());
 
-//===Compress All Requests===
+//===Gzip Compress All Responses===
 app.use(compression());
 
 

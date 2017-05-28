@@ -9,56 +9,29 @@ html {
 
     /*Set up proportionate scaling */
     width: 100%;
-    height: auto%;
+/*    height: auto%;*/
     /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
+/*    min-height: 100%;
+    min-width: 1024px;*/
 
     /* Set up positioning */
-    position: fixed;
+ /*   position: fixed;*/
     top: 0;
     left: 0;
 }
-/*mate section*/
-.service-list {
-    list-style-type: none;
-    margin-left:0px;
-    padding-left:0px;
-    display: inline-block;
-}
 
-.service-list img
-{
-    float:left;
+.register {  
+    /*background: transparent; */
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
 }
-
-.service-list p,h3 {
-    text-align: right;
-    display:inline-block;
-    padding: 0;
-}
-
-.wrapper {  min-height:100%;  position:relative; }
-
-.login { 
-    background: transparent;
-    /*border: 5px solid rgba(255, 255, 255, .5);
-    -webkit-border-radius:;
-    -moz-border-radius:;
-    /*background-color: lightslategrey; opacity: 0.7;*/
-    position: fixed;
-    width: 340px;
-    height: 280px;
-    top: 50%;
-    left: 50%;
-    margin-top: -140px;
-    margin-left: -170px;
-}
-.login h1 { 
+.register h1 { 
     color: #fff;
     font-size: 1.15em; 
     text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-    letter-spacing:1px; text-align:center; 
+    letter-spacing:1px; 
+    text-align:center; 
     padding-bottom: 15px;}
 
 input {
@@ -80,6 +53,20 @@ input {
     -o-transition: box-shadow .5s ease;
     -ms-transition: box-shadow .5s ease;
     transition: box-shadow .5s ease;
+    margin-top: 2px;
+}
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    margin-left: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+select {
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 
@@ -122,4 +109,12 @@ color: #d9d9d9;
  
 input:-ms-input-placeholder {  
 color: #d9d9d9;  
+}
+@media screen and (max-width:730px){
+  .register{
+    margin: auto;
+    width: 95%;
+    padding: 0px;
+    margin-top: 50px;
+  }
 }
