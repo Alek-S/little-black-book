@@ -40,6 +40,27 @@ $(document).ready(function(){
 			$error.fadeIn();
 		}else{
 			alert('passed');
+			$.ajax({
+				method: 'POST',
+				url: window.location.origin + '/api/user/new',
+				data: {
+					email: $email,
+					firstName: $firstName,
+					lastName: $lastName,
+					password: $password,
+					gender: $gender,
+					age: $age,
+					state: $state,
+					zip: $zip, 
+				}
+			}).done( function(response){
+
+				if(response === true){
+					//if registration passed
+					location.replace('/');
+				}
+
+			});
 		}
 	});
 
