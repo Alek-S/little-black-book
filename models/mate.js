@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
 					args: [3, 128],
 					msg: 'firstName address must be between 3 and 128 characters in length'
 				},
-				notNull: true
 			}
 		},
 		lastName: {

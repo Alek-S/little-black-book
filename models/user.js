@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
 				isEmail: {
 					msg: 'Email address must be valid'
 				},
-				notNull: true
 			}
 		},
 		firstName: {
@@ -39,7 +38,6 @@ module.exports = (sequelize, DataTypes) => {
 					args: [6, 250],
 					msg: 'password address must be between 6 and 250 characters in length'
 				},
-				notNull: true
 			}
 		},
 		gender: {

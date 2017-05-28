@@ -39,7 +39,7 @@ $(document).ready(function(){
 			$error.text('Error: Zipcode not formatted correctly');
 			$error.fadeIn();
 		}else{
-			alert('passed');
+
 			$.ajax({
 				method: 'POST',
 				url: window.location.origin + '/api/user/new',
@@ -54,9 +54,7 @@ $(document).ready(function(){
 					zip: $zip, 
 				}
 			}).done( function(response){
-
 				if(response === true){
-					//if registration passed
 					location.replace('/');
 				}
 

@@ -24,33 +24,35 @@ module.exports = function(app) {
 		}
 	});
 
-	//create new user
+	// create new user
 	app.post('/api/user/new', (req, res)=>{
-		let passwordPlain = password: req.body.password;
-		let hash = undefined;
+		let passwordPlain = req.body.password;
 		let saltRounds = 12;
 
-		bcrypt.hash(myPlaintextPassword, saltRounds, function(err, newHash) {
+		bcrypt.hash(passwordPlain, saltRounds, (err, newHash) => {
 			if(err){
-				console.log(err)
+				console.log(err);
 			}
 
-  			hash = newHash;
-		});
+			console.log(req.body);
+			console.log(newHash);
 
-		db.User.create({
-			email: req.body.email,
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
-			password: hash,
-			gender: req.body.gender,
-			age: req.body.age,
-			state: req.body.state,
-			zip: req.body.zip,
-		}).then( (result)=>{
-			res.json(result);
+			db.User.create({
+				email: req.body.email,
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
+				password: newHash,
+				gender: req.body.gender,
+				age: req.body.age,
+				state: req.body.state,
+				zip: req.body.zip
+			}).then( (result)=>{
+				res.json(true);
+			});
+
 		});
 	});
+
 
 	//create new mate
 	app.post('/api/mate/:name/:platform/:userID', (req, res)=>{
