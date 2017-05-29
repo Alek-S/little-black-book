@@ -15,7 +15,7 @@ $(document).ready(function(){
 		var map = AmCharts.makeChart( "chartdiv", {
 		type: "map",
 		theme: "light",
-		colorSteps: 5,
+		colorSteps: 50,
 
 		  dataProvider: {
 		    map: "usaLow",
@@ -172,17 +172,18 @@ $(document).ready(function(){
 		    } ]
 		  },
 
-		  areasSettings: {
-		    autoZoom: true
+		areasSettings: {
+			autoZoom: true,
+			balloonText: "Total Members [[value]]"
 		  },
 
-		  valueLegend: {
-		    right: 5,
+		valueLegend: {
+		    right: 10,
 		    minValue: "Few",
 		    maxValue: "Many"
 		  },
 
-		  export: {
+		export: {
 		    enabled: false
 		  }
 
