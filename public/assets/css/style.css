@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
 
 html {
     background:url('../images/book.jpg')  no-repeat center center fixed;
@@ -39,21 +39,20 @@ html {
 }
 
 .wrapper {  min-height:100%;  position:relative; }
-
-a{
-    margin-left: 25%;
-    margin-top: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-    color: #d9d9d9;
-    background-color: rgba(0,0,0,.3);
-    margin-bottom: 10px;
-    border-radius: 4px;
-
+#nav{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.4em;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    background-color: #80d4ff;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    width: 100%
 }
-a:hover{
-    color: #33bbff;
+strong{
+    font-weight: 600;
 }
 .login { 
     background: transparent;
@@ -138,4 +137,22 @@ color: #d9d9d9;
  
 input:-ms-input-placeholder {  
 color: #d9d9d9;  
+}
+a{
+    margin-left: 0;
+    margin-top: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    color: #d9d9d9;
+    background-color: rgba(0,0,0,.3);
+    margin-bottom: 20px;
+    border-radius: 4px;
+
+}
+a:hover{
+    color: #33bbff;
+}
+#register{
+    margin-left: 5%;
 }
