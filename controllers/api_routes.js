@@ -119,4 +119,11 @@ module.exports = function(app) {
 	// 	});
 	// });
 
+	//=============Analytics Dashboard============
+	app.get('/api/dashboard/state', (req,res)=>{
+		db.sequelize.query("select state, count(*) AS total from Users group by 1 order by 2 desc").then((result)=>{
+			res.json(result[0]);
+		});
+	});
+
 };
