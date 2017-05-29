@@ -191,5 +191,28 @@ $(document).ready(function(){
 
 	});
 
+	$.get( window.location.origin + '/api/dashboard/top5/platform').done(function(data){
+		$('#p1').html( '<strong>'+data[0].platform+'</strong> - '+ data[0].total );
+		$('#p2').html( '<strong>'+data[1].platform+'</strong> - '+ data[1].total );
+		$('#p3').html( '<strong>'+data[2].platform+'</strong> - '+ data[2].total );
+		$('#p4').html( '<strong>'+data[3].platform+'</strong> - '+ data[3].total );
+		$('#p5').html( '<strong>'+data[4].platform+'</strong> - '+ data[4].total );
+	});
+
+	$.get( window.location.origin + '/api/dashboard/top5/age').done(function(data){
+		$('#a1').html( '<strong>'+data[0].age+' years old</strong> - '+ data[0].total + ' users' );
+		$('#a2').html( '<strong>'+data[1].age+' years old</strong> - '+ data[1].total + ' users' );
+		$('#a3').html( '<strong>'+data[2].age+' years old</strong> - '+ data[2].total + ' users' );
+		$('#a4').html( '<strong>'+data[3].age+' years old</strong> - '+ data[3].total + ' users' );
+		$('#a5').html( '<strong>'+data[4].age+' years old</strong> - '+ data[4].total + ' users' );
+	});
+
+	$.get( window.location.origin + '/api/dashboard/top5/event').done(function(data){
+		$('#e1').html( '<strong>'+data[0].what +'</strong> - '+ data[0].total + ' events' );
+		$('#e2').html( '<strong>'+data[1].what +'</strong> - '+ data[1].total + ' events' );
+		$('#e3').html( '<strong>'+data[2].what +'</strong> - '+ data[2].total + ' events' );
+		$('#e4').html( '<strong>'+data[3].what +'</strong> - '+ data[3].total + ' events' );
+		$('#e5').html( '<strong>'+data[4].what +'</strong> - '+ data[4].total + ' events' );
+	});
 });
 

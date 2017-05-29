@@ -120,10 +120,33 @@ module.exports = function(app) {
 	// });
 
 	//=============Analytics Dashboard============
+
 	app.get('/api/dashboard/state', (req,res)=>{
 		db.sequelize.query("select state, count(*) AS total from Users group by 1 order by 2 desc").then((result)=>{
 			res.json(result[0]);
 		});
 	});
 
+	app.get('/api/dashboard/top5/platform', (req,res)=>{
+		db.sequelize.query("select platform, count(*) AS total from Mates group by 1 order by 2 desc limit 5").then((result)=>{
+			res.json(result[0]);
+		});
+	});
+
+	app.get('/api/dashboard/top5/age', (req,res)=>{
+		db.sequelize.query("select age, count(*) AS total from Users group by 1 order by 2 desc limit 5").then((result)=>{
+			res.json(result[0]);
+		});
+	});
+
+	app.get('/api/dashboard/top5/event', (req,res)=>{
+		db.sequelize.query("select what, count(*) AS total from Events group by 1 order by 2 desc limit 5").then((result)=>{
+			res.json(result[0]);
+		});
+	});
 };
+
+
+
+
+
