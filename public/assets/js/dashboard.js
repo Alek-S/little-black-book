@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-	$.get( window.location.origin + '/api/dashboard/state').done(function(data){
-		console.log(data);
 
+	// === United States Heatmap ===
+	$.get( window.location.origin + '/api/dashboard/state').done(function(data){
+		//For use with US heatmap
 		function stateCount(state){
 			if( data[_.findIndex(data, function(o) { return o.state == state; })] ){ 
 				return data[_.findIndex(data, function(o) { return o.state == state; })].total
@@ -189,8 +190,37 @@ $(document).ready(function(){
 
 		});
 
-	});
+	}); //end of United States Heatmap
 
+
+
+	// === Event Timeline Chart ===
+	// $.get( window.location.origin + '/api/dashboard/event/timeline').done(function(data){
+		
+	// 	var chart = c3.generate({
+	// 	    data: {
+	// 	        columns: [
+	// 	            ['Events', 30, 200, 100, 400, 150, 250]
+	// 	        ],
+	// 	        type: 'area-spline',
+	// 	    },
+	// 	    color: {
+	// 	    	pattern:['#62a3c4']
+	// 	    },
+	// 	    axis: {
+	// 	        y: {show: false}
+	// 	    },
+	// 	    legend: {
+ //  				show: false
+	// 		}
+	// 	});
+
+
+	// }); //end of Event Timeline
+
+
+
+	//=== Top 5 Cards ===
 	$.get( window.location.origin + '/api/dashboard/top5/platform').done(function(data){
 		$('#p1').html( '<strong>'+data[0].platform+'</strong> - '+ data[0].total );
 		$('#p2').html( '<strong>'+data[1].platform+'</strong> - '+ data[1].total );
@@ -213,6 +243,8 @@ $(document).ready(function(){
 		$('#e3').html( '<strong>'+data[2].what +'</strong> - '+ data[2].total + ' events' );
 		$('#e4').html( '<strong>'+data[3].what +'</strong> - '+ data[3].total + ' events' );
 		$('#e5').html( '<strong>'+data[4].what +'</strong> - '+ data[4].total + ' events' );
-	});
-});
+	}); 
+	//end of Top 5
+
+}); //end of document ready
 

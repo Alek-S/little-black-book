@@ -144,6 +144,12 @@ module.exports = function(app) {
 			res.json(result[0]);
 		});
 	});
+
+	app.get('/api/dashboard/event/timeline', (req,res)=>{
+		db.sequelize.query("select DATE_FORMAT(createdAt, '%Y-%m-%d') as date, count(*) AS total from events group by 1 order by 1 asc").then((result)=>{
+			res.json(result[0]);
+		});
+	});
 };
 
 

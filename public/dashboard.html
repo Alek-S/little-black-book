@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css"/>
 	
 	<!-- jQuery -->
     <script
@@ -23,16 +22,28 @@
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	
+	<!-- c3 and d3 -->
+	<link href="assets/c3/c3.min.css" rel="stylesheet" type="text/css">
 
+	<!-- Load d3.js and c3.js -->
+	<script src="assets/c3/d3.min.js" charset="utf-8"></script>
+	<script src="assets/c3/c3.min.js"></script>
+	
+	<!-- dashboard css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css"/>
 </head>
 <body>
 <div id="nav">Little Black Book <strong>Dashboard</strong></div>
 <!-- HTML -->
+
 <div id="chartdiv"></div>
 
+<!-- <div id="chart"></div>
+ -->
 <div id='cards'>
 	<div class='top5'>
-		<section><strong>Top 5</strong> - Platforms</section>
+		<section><strong>Top 5<strong> - Platforms</section>
 		<p>1. <span id='p1'></span></p>
 		<p>2. <span id='p2'></span></p>
 		<p>3. <span id='p3'></span></p>
