@@ -55,7 +55,7 @@ strong{
     margin-bottom: 25px;
 }
 .mHead a{
-    width: 100px;
+    width: 200px;
     float: left;
     font-weight: 600;
     color: #333;
@@ -134,6 +134,10 @@ button:hover{
 }
 button:active{
     background: linear-gradient(to bottom, #3ba2bf 0%, #3890a8 41%, #2e7284 100%);
+}
+p{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 

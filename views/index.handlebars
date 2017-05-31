@@ -27,42 +27,40 @@
     <div class='mHead'>
         <a href="#">{{firstName}} {{lastName}}</a><p>Avg Rating: <span class='avgRating'>&#x2764; &#x2764; &#x2764;</span></p>
     </div>
-
-    <div class='events'>
-
-        <div class='eventNew'>
+	
+	<div class='events'>
+    
+         <div class='eventNew'>
             <p><a href="#">...add new event</a></p>
 
             <form class='eventForm'>
-            <label for='What'>What:</label>
-            <input type="text" id='firstName' placeholder="Giacomo"><br>
-            <br>
-            <label for='When'>When:</label>
-            <input type="date" id='lastName' placeholder="Casanova"><br>
-            <br>
-            <label for='where'>Where:</label> 
-            <input type="text" id='lastName' placeholder="Casanova"><br>
+                <label for='What'>What:</label>
+                <input type="text" id='firstName' placeholder="Giacomo"><br>
+                <br>
+                <label for='When'>When:</label>
+                <input type="date" id='lastName' placeholder="Casanova"><br>
+                <br>
+                <label for='where'>Where:</label> 
+                <input type="text" id='lastName' placeholder="Casanova"><br>
 
-            <br>
-            <button class='submit' type="submit">Submit</button>
-        </form>
+                <br>
+                <button class='submit' type="submit">Submit</button>
+            </form>
         </div>
 
-        <div class='event'>
-            <h2 class='what'><strong>Event:</strong> <span>Drinks</span></h2>  
-            <p class='when'><strong>When: </strong> 2017-05-29</p>
-            <p class='where'><strong>Where:</strong> 22 Arizona Lane</p>
-            <p><strong>Rating:</strong> <span class='rating'>&#x2764; &#x2764; &#x2764;</span></p>
+
+	{{#each ../user.Events}}
+        {{#ifCond MateId "===" "1001"}}
+		<div class='event'>
+            <h2 class='what'><strong>Event:</strong> <span>{{what}}</span></h2>  
+            <p class='when'><strong>When: </strong> {{when}}</p>
+            <p class='where'><strong>Where:</strong> {{{'where'}}}</p>
+            <p><strong>Rating:</strong> <span class='rating'>{{rating}}</span></p>
         </div>
+        {{/if}}
+	{{/each}}
 
-        <div class='event'>
-            <h2 class='what'><strong>Event:</strong> <span>Drinks</span></h2>  
-            <p class='when'><strong>When: </strong> 2017-05-29</p>
-            <p class='where'><strong>Where:</strong> 22 Arizona Lane</p>
-            <p><strong>Rating:</strong> <span class='rating'>&#x2764; &#x2764; &#x2764;</span></p>
-        </div>    
-    </div>
-
+	</div>
+	
 </div>
 {{/each}}
-

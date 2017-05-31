@@ -24,6 +24,34 @@ module.exports = function(app) {
 		}
 	});
 
+	//get mates for user
+	app.get('/api/mates/user', (req,res)=>{
+
+		db.Mate.findAll({
+			where: { UserId: req.session.userId}
+		}).then( (result)=>{
+			res.json(result);
+		});
+	});
+
+
+	//get events for user and mate
+	app.get('/api/events/:mateID', (req,res)=>{
+
+		db.Event.findAll({
+			where: { MateId: req.params.mateID}
+		}).then( (result)=>{
+			res.json(result);
+		});
+
+	});
+
+
+	//post mate for user
+
+
+	//post event for user and mate
+
 	// create new user
 	app.post('/api/user/new', (req, res)=>{
 		let passwordPlain = req.body.password;
@@ -105,19 +133,6 @@ module.exports = function(app) {
 
 	});
 
-	//create new event
-	// app.post('/api/event/:what/:when/:where/:rating/:UserID/:MateID', (req, res)=>{
-	// 	db.Mate.create({
-	// 		what: req.params.what,
-	// 		when: req.params.when,
-	// 		where: req.params.where,
-	// 		rating: req.params.rating,
-	// 		UserId: req.params.userID,
-	// 		MateId: req.params.MateID,
-	// 	}).then( (result)=>{
-	// 		res.json(result);
-	// 	});
-	// });
 
 	//=============Analytics Dashboard============
 

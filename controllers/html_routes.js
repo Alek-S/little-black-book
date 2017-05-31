@@ -44,9 +44,10 @@ module.exports = function(app) {
 				where: { id: req.session.userId},
 				include: [db.Mate, db.Event]
 			}).then((data)=>{
-				console.log( JSON.stringify(data,null,2));
-				res.render('index', {user: data});
-			})	
+				// console.log(JSON.stringify(data,null,2));
+				// res.render('index', {user: data});
+				res.sendFile(path.join(__dirname, '../public/user.html'));
+			})
 		}
 	});
 
