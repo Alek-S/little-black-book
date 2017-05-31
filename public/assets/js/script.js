@@ -14,6 +14,4 @@ $( document ).ready(function(){
         event.preventDefault();
         $(this).children('form').slideToggle();
     });
-
-
 }); //end of .ready()

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Eat Da Burger</title>
-
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/burger_style.css">
-
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-	  
-	<script src="assets/js/script.js"></script>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/user.css"/>
 </head>
 <body>
-	<img id="logo" src="assets/img/mcdowells.jpg">
+
+<div id="nav">Little Black Book - <strong>Hi {{user.firstName}}!</strong></div>
+
+
     {{{body}}}
 
+<script src="assets/js/script.js"></script>
 </body>
 </html>

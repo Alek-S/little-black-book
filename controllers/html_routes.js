@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const db = require('../models');
 
 module.exports = function(app) {
 
@@ -13,20 +14,40 @@ module.exports = function(app) {
 		if(!req.session.loggedIn){
 			res.sendFile(path.join(__dirname, '../public/login.html'));
 		}else{
-			res.sendFile(path.join(__dirname, '../public/user.html'));
+			res.redirect('/user');
 		}
 	});
+
 
 	// register
 	app.get('/register', function(req, res) {
 		res.sendFile(path.join(__dirname, '../public/register.html'));
 	});
 
+	// dashboard
 	app.get('/dashboard', function(req, res) {
 		res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 	});
 
+	//front log in page
 	app.get('/login', function(req, res) {
 		res.sendFile(path.join(__dirname, '../public/login.html'));
 	});
+
+	//front log in page
+	app.get('/user', function(req, res) {
+
+		if(!req.session.loggedIn){
+			res.redirect('/');
+		}else{
+			db.User.findOne({
+				where: { id: req.session.userId},
+				include: [db.Mate, db.Event]
+			}).then((data)=>{
+				console.log( JSON.stringify(data,null,2));
+				res.render('index', {user: data});
+			})	
+		}
+	});
+
 };
