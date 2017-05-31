@@ -10,5 +10,10 @@ $( document ).ready(function(){
         $(this).siblings('form').slideToggle();
     });
 
+    $('.eventNew').on('click', function(){
+        event.preventDefault();
+        $(this).children('form').slideToggle();
+    });
+
 
 }); //end of .ready()
