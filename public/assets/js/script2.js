@@ -7,7 +7,7 @@ $( document ).ready(function(){
             var heart = '&#x2764';
 
             var div = "<div class='mate' id='" + entry.id + "'>";
-            div += "     <div class='mHead'>";
+            div += "     <div class='mHead new'>";
             div +="        <a href=\"#\">"+entry.firstName + " " + entry.lastName+"</a><p>"+entry.platform+"  |  Avg Rating: <span class='avgRating'>&#x2764; &#x2764;</span></p>"
             div +="    </div>"
             div +=""
@@ -40,22 +40,26 @@ $( document ).ready(function(){
             var currentMate = $(this).parent().attr('id');
             var url = window.location.origin + '/api/events/' + currentMate;
 
-            $.get(url, function(events){
-                console.log(events);
-                
-                events.forEach(function(entry){
-                    divEvent ="<div class='event'>";
-                    divEvent +="     <h2 class='what'><strong>Event:</strong> <span>"+ entry.what +"</span></h2>  ";
-                    divEvent +="     <p class='when'><strong>When: </strong> "+ entry.when +"</p>";
-                    divEvent +="     <p class='where'><strong>Where:</strong>"+ entry.where +"</p>";
-                    divEvent +="     <p><strong>Rating:</strong> <span class='rating'>&#x2764; &#x2764; &#x2764;</span></p>";
-                    divEvent +="</div> ";
+            if( $(this).hasClass('new') ){ //to check if events have already been pulled
+                $(this).removeClass('new')
+                $.get(url, function(events){
+                    console.log(events);
+                    
+                    events.forEach(function(entry){
+                        divEvent ="<div class='event'>";
+                        divEvent +="     <h2 class='what'><strong>Event:</strong> <span>"+ entry.what +"</span></h2>  ";
+                        divEvent +="     <p class='when'><strong>When: </strong> "+ entry.when +"</p>";
+                        divEvent +="     <p class='where'><strong>Where:</strong>"+ entry.where +"</p>";
+                        divEvent +="     <p><strong>Rating:</strong> <span class='rating'>&#x2764; &#x2764; &#x2764;</span></p>";
+                        divEvent +="</div> ";
 
-                    $( '#'+currentMate).children('.events').append(divEvent);
+                        $( '#'+currentMate).children('.events').append(divEvent);
+                    });
                 });
+            }
 
-                $( '#'+currentMate).children('.events').slideToggle();
-            });
+
+            $( '#'+currentMate).children('.events').slideToggle();
         });
 
         $('#mNew a').on('click', function(){
