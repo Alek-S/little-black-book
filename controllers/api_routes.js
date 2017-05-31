@@ -48,6 +48,22 @@ module.exports = function(app) {
 
 
 	//post mate for user
+	app.post('/api/mate/new', (req, res)=>{
+		let firstName = req.body.firstName;
+		let lastName = req.body.lastName;
+		let platform = req.body.platform;
+		console.log(firstName, lastName, platform);
+
+		db.Mate.create({
+			firstName: firstName,
+			lastName: lastName,
+			platform: platform,
+			UserId: 1001,
+		}).then( (result)=>{
+			res.send('success');
+		});
+
+	});
 
 
 	//post event for user and mate
@@ -78,18 +94,6 @@ module.exports = function(app) {
 				res.json(true);
 			});
 
-		});
-	});
-
-
-	//create new mate
-	app.post('/api/mate/:name/:platform/:userID', (req, res)=>{
-		db.Mate.create({
-			name: req.params.name,
-			platform: req.params.platform,
-			UserId: req.params.userID,
-		}).then( (result)=>{
-			res.json(result);
 		});
 	});
 

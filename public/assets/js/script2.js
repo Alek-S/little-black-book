@@ -8,7 +8,7 @@ $( document ).ready(function(){
 
             var div = "<div class='mate' id='" + entry.id + "'>";
             div += "     <div class='mHead'>";
-            div +="        <a href=\"#\">"+entry.firstName + " " + entry.lastName+"</a><p>Avg Rating: <span class='avgRating'>&#x2764; &#x2764;</span></p>"
+            div +="        <a href=\"#\">"+entry.firstName + " " + entry.lastName+"</a><p>"+entry.platform+"  |  Avg Rating: <span class='avgRating'>&#x2764; &#x2764;</span></p>"
             div +="    </div>"
             div +=""
             div +="    <div class='events'>"
@@ -26,7 +26,7 @@ $( document ).ready(function(){
             div +="            <label for='where'>Where:</label> "
             div +="            <input type=\"text\" id='lastName'><br>"
             div +=""
-            div +="             <button class='submit' type=\"submit\">Submit</button>"
+            div +="             <button class='submit' id='newEvent' type=\"submit\">Submit</button>"
             div +="         </form>"
             div +="         </div>"
             div +=" </div>"
@@ -38,7 +38,7 @@ $( document ).ready(function(){
         $('.mate .mHead').on('click', function(){
             event.preventDefault();
             var currentMate = $(this).parent().attr('id');
-            var url = '/api/events/' + currentMate;
+            var url = window.location.origin + '/api/events/' + currentMate;
 
             $.get(url, function(events){
                 console.log(events);
@@ -68,6 +68,34 @@ $( document ).ready(function(){
             $(this).children('form').slideToggle();
         });
 
-    });
+        $('#newMate').on('click',function(){
+            event.preventDefault();
 
+            var firstName = $(this).siblings('#firstName').val();
+            var lastName = $(this).siblings('#lastName').val();
+            var platform = $(this).siblings('#platform').val();
+
+            console.log(firstName, lastName, platform);
+
+            $.post(window.location.origin + '/api/mate/new', {
+                firstName: firstName,
+                lastName: lastName,
+                platform: platform
+            }).done(function(response){
+                console.log(response);
+                location.reload();
+            });
+        });
+
+    });
 }); //end of .ready()
+
+
+
+
+
+
+
+
+
+
