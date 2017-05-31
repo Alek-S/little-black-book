@@ -4,89 +4,11 @@ html{
     font-family: 'Open Sans',sans-serif;
     font-weight: 300;
 }
-* {
-    box-sizing: border-box;
-    font-family: 'Open Sans',sans-serif;
-    font-weight: 300;
-
-}
-#nav{
-    font-family: 'Open Sans', sans-serif;
-    color: #000;
-    font-weight: 300;
-    font-size: 1.4em;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    background-color: #80d4ff;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-    width: 100%
-}
-strong{
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-p {
-    font-size:1.1em;
-    margin: 1em 0;
-}
-
-.description {
-    font-size: 1.1em;
-    font-weight: 300;
-}
-
-/*css for the body */
-
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 2.5em;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-
-.inner {
-    padding-left: 1em;
-    overflow: hidden;
-    display: none;
-
-&.show {
-     /*display: block;*/
- }
-}
-
-li {
-    margin: .5em 0;
-
-a.toggle {
-    width: 100%;
-    display: block;
-    background: rgba(0,0,0,0.78);
-    color: #fefefe;
-    padding: .75em;
-    border-radius: 0.15em;
-    transition: background .3s ease;
-
-&:hover {
-     background: rgba(0, 0, 0, 0.9);
- }
-}
-}
-}
 
 
 body{
-    background:url('../images/user.jpg')  no-repeat center center fixed;
-    background-color: #000000;
+    /*background:url('../images/user.jpg')  no-repeat center center fixed;*/
+    background-color: #f2f2f2;
     -webkit-background-size:;
     background-size: cover;
     background-position: top;
@@ -98,87 +20,78 @@ body{
     color:#fff;
 }
 
-div.container {
-    width: 95%;
-    border: none;
-    margin-left:auto;
-    margin-right:auto;
-    background-color: rgba(0,0,0,.2);
-    border-radius: 5px;
-    padding: 10px;
-}
-
-header{
-    padding: 1em;
-    color: white;
-    background-color: #555555;
-    text-align: center;
-    width:960px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-header .logo{
+#nav{
     font-family: 'Open Sans', sans-serif;
-
-    font-size:3em;
-    line-height: 1;
-    margin:0;
-    padding:0;
+    color: #000;
+    font-weight: 300;
+    font-size: 1.4em;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 45px;
+    background-color: #80d4ff;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    width: 100%
 }
-header .logo a{
-    text-decoration: none;
-    color:#000000;
+strong{
+    font-weight: 600;
 }
-header .logo:first-letter {
-    color:#000000;
-}
-
-nav {
-    float: right;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-    font-size: .5cm;
-    color: #000000;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul a {
-    text-decoration: none;
-}
-
-h1 {
-    font-size: .8cm;
-}
-
-h3 {
-    font-size: .5cm;
-    color: #000000;
-    text-align: center;
-}
-footer{
-    position:fixed;
-    bottom:10px;
-    width: 100%;
-    text-align: center;
-}
-
-/* styling for the mate section */
-.mate{
-    color: #fff;
-    margin-left: 5px;
-    margin-right: 5px;
+.mate, #mNew{
+    margin: auto;
+    width: 80%;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     padding: 10px;
+    border: solid 1px #d9d9d9;
     border-radius: 5px;
-    background-color: rgba(0,0,0,.5);
-    margin-bottom: 15px;
+    background-color: rgba(255,255,255,.75);
+    min-height: 15px;
+    margin-bottom: 25px;
 }
-@media all and (min-width: 768px) {
-    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
-    .mate {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
-    footer {-webkit-order:3;order:3;}
+.mHead{
+    clear: both;
+    margin-bottom: 25px;
+}
+.mHead a{
+    width: 100px;
+    float: left;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+}
+a{
+  color: #333;
+  text-decoration: none;  
+}
+a:hover{
+    color: #ff4d4d;
+}
+.mHead p{
+    display: inline;
+    float: right;
+}
+.rating, .avgRating{
+    color: #ff5050;
+}
+.events{
+    display: none;
+}
+.event{
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.new a{
+    font-size: 1em;
+}
+#mNew{
+    font-style: italic;
+}
+
+
+
+
+
