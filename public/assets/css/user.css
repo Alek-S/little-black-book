@@ -48,6 +48,7 @@ strong{
     background-color: rgba(255,255,255,.75);
     min-height: 15px;
     margin-bottom: 25px;
+    padding-top: 15px;
 }
 .mHead{
     clear: both;
@@ -77,21 +78,59 @@ a:hover{
 .events{
     display: none;
 }
-.event{
+.event, form{
     border-radius: 5px;
-    background-color: #e6e6e6;
+    background-color: #EAEAEA;
     padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 .new a{
     font-size: 1em;
 }
-#mNew{
+#mNew a{
     font-style: italic;
 }
-
-
-
+form{
+    display: none;
+}
+form{
+    margin-top: 15px;
+}
+input{
+    margin-top: 5px;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding-left: 2px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: .9em;
+}
+select {
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
+}
+button{
+    outline: none;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    background: linear-gradient(to bottom, #93cede 0%, #75bdd1 41%, #49a5bf 100%);
+    background-color: #ff5050;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+}
+button:hover{
+    background: linear-gradient(to bottom, #cce8ef 0%, #a7d5e2 41%, #73bace 100%);
+}
+button:active{
+    background: linear-gradient(to bottom, #3ba2bf 0%, #3890a8 41%, #2e7284 100%);
+}
 
 

@@ -16,7 +16,26 @@
 <script src="assets/js/script.js"></script>
 
 <div id='mNew'>
-        <a href="#">...add new mate</a>
+        <a href="#">...add a new mate</a>
+
+        <form>
+            <label for='firstName'>First Name:</label>
+            <input type="text" id='firstName' placeholder="Giacomo"><br>
+            <br>
+            <label for='lastName'>Last Name:</label>
+            <input type="text" id='lastName' placeholder="Casanova"><br>
+            <br>
+            <label for='platform'>Platform:</label> 
+            <select id='platform'>
+                <option value="Tinder">Tinder</option>
+                <option value="OKcupid">OKcupid</option>
+                <option value="Bumble">Bumble</option>
+                <option value="eHarmony">eHarmony</option>
+                <option value="Mate.com">Mate.com</option>
+            </select><br>
+            <br>
+            <button class='submit' type="submit">Submit</button>
+        </form>
 </div>
 
 <div class='mate' id='m1'>
