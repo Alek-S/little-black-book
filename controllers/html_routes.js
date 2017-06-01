@@ -31,7 +31,15 @@ module.exports = function(app) {
 
 	//front log in page
 	app.get('/login', function(req, res) {
-		res.sendFile(path.join(__dirname, '../public/login.html'));
+		req.session.destroy;
+
+		if(!req.session.loggedIn){
+			res.sendFile(path.join(__dirname, '../public/login.html'));
+		}else{
+			req.session.destroy;
+			res.sendFile(path.join(__dirname, '../public/login.html'));
+			// res.redirect('/user');
+		}
 	});
 
 	//about page
@@ -54,6 +62,13 @@ module.exports = function(app) {
 				res.sendFile(path.join(__dirname, '../public/user.html'));
 			})
 		}
+	});
+
+	//logout
+	app.get('/logout', function(req, res) {
+		console.log('logout...')
+		req.session.destroy;
+		res.sendFile(path.join(__dirname, '../public/login.html'));
 	});
 
 };

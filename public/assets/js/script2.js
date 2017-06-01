@@ -6,7 +6,7 @@ $( document ).ready(function(){
     var h4 = '&#x2764 &#x2764 &#x2764 &#x2764';
     var h5 = '&#x2764 &#x2764 &#x2764 &#x2764 &#x2764';
 
-    $.get('/api/mates/user', function(mates){
+    $.get(window.location.origin + '/api/mates/user', function(mates){
         console.log(mates);
 
         mates.forEach(function(entry){
