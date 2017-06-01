@@ -61,13 +61,12 @@ module.exports = function(app) {
 		let firstName = req.body.firstName;
 		let lastName = req.body.lastName;
 		let platform = req.body.platform;
-		console.log(firstName, lastName, platform);
 
 		db.Mate.create({
 			firstName: firstName,
 			lastName: lastName,
 			platform: platform,
-			UserId: 1001,
+			UserId: req.session.userId,
 		}).then( (result)=>{
 			res.send('success');
 		});
@@ -76,6 +75,33 @@ module.exports = function(app) {
 
 
 	//post event for user and mate
+	app.post('/api/event/new', (req, res)=>{
+		let what = req.body.what;
+		let when = req.body.when;
+		let where = req.body.where;
+		let rating = req.body.rating;
+		let mateId = req.body.mateId;
+
+		console.log(what)
+		console.log(when)
+		console.log(where)
+		console.log(rating)
+		console.log(mateId)
+
+		db.Event.create({
+			what: what,
+			when: when,
+			where: where,
+			rating: rating,
+			MateId: mateId,
+			UserId: req.session.userId
+		}).then( (result)=>{
+				res.send('success');
+		}).catch( (err)=> {
+ 			console.log(err);	
+		});
+
+	});
 
 	// create new user
 	app.post('/api/user/new', (req, res)=>{
@@ -115,6 +141,7 @@ module.exports = function(app) {
 		});
 	});
 
+	//check password
 	app.post('/api/password/', (req,res)=>{
 		let emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		let passwordToCheck  = req.body.password;

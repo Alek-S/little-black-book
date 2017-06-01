@@ -34,6 +34,11 @@ module.exports = function(app) {
 		res.sendFile(path.join(__dirname, '../public/login.html'));
 	});
 
+	//about page
+	app.get('/about', function(req, res) {
+		res.sendFile(path.join(__dirname, '../public/about.html'));
+	});
+
 	//front log in page
 	app.get('/user', function(req, res) {
 

@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
 					args: [3, 128],
 					msg: 'what address must be between 3 and 128 characters in length'
 				},
-				notNull: true
 			}
 		},
 		when: {
@@ -22,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
 					args: [3, 128],
 					msg: 'where address must be between 3 and 128 characters in length'
 				},
-				allowNull: false
 			}
 		},
 		rating: {
@@ -34,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
 				},
 			},
 			isNumeric: true,
-			notNull: true
 		}
 	},
 		{
@@ -42,9 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 				associate: (models) => {
 
 					Event.belongsTo(models.User, {
-						foreignKey: {
-							allowNull: false
-						}
+						
 					});
 
 				}

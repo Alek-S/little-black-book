@@ -40,7 +40,7 @@ $( document ).ready(function(){
             div +="                 <option value='4'>4</option>"
             div +="                 <option value='5'>5</option>"
             div +="             </select><br><br>"
-            div +="             <button class='submit' id='newEvent' type=\"submit\">Submit</button>"
+            div +="             <button value='" + entry.id + "' class='submit' id='newEvent' type=\"submit\">Submit</button>"
             div +="         </form>"
             div +="         </div>"
             div +=" </div>"
@@ -110,9 +110,30 @@ $( document ).ready(function(){
         });
 
         //submit new event
-        $('#newEvent').on('click', function(){
+        $('.eventForm button').on('click', function(){
             event.preventDefault();
             var what = $(this).siblings('#what').val();
+            var when = $(this).siblings('#when').val();
+            var where = $(this).siblings('#where').val();
+            var rating = $(this).siblings('#eventRating').val();
+            var eventMate = $(this).val();
+
+            console.log('what',what);
+            console.log('when',when);
+            console.log('where',where);
+            console.log('rating',rating);
+            console.log('eventMate', eventMate);
+
+            $.post(window.location.origin + '/api/event/new',{
+                what: what,
+                when: when,
+                where: where,
+                rating: rating,
+                mateId: eventMate
+
+            }).done(function(response){
+                location.reload();
+            });
         });
 
         //Add a new mate
@@ -137,15 +158,15 @@ $( document ).ready(function(){
                 console.log('Rating',ratingRes[0].avg);
                 var currentRating = undefined;
 
-                if(ratingRes[0].avg === 1){
+                if( parseInt(ratingRes[0].avg) === 1){
                     currentRating = h1;
-                } else if(ratingRes[0].avg === 2){
+                } else if(parseInt(ratingRes[0].avg) === 2){
                     currentRating = h2;
-                } else if(ratingRes[0].avg === 3){
+                } else if(parseInt(ratingRes[0].avg) === 3){
                     currentRating = h3;
-                }else if(ratingRes[0].avg === 4){
+                }else if(parseInt(ratingRes[0].avg) === 4){
                     currentRating = h4;
-                }else if(ratingRes[0].avg === 5){
+                }else if(parseInt(ratingRes[0].avg) === 5){
                     currentRating = h5;
                 } else{
                     currentRating = 'N/A'
