@@ -34,6 +34,7 @@ p{
 	width: 95%;
 }
 .top5{
+
 	float: left;
 	font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -44,15 +45,27 @@ p{
     width: 320px;
     background-color: #fff;
 }
-
 #chartdiv {
 	margin: auto;
   	width: 90%;
   	height: 600px;
   	margin-bottom: 40px;
 }
+#chartCard{
+	font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin: auto;
+    width: 95%;
+    border: solid 1px #CBCBCB;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+}
 #chart{
 	margin: auto;
 	height: 150px;
-	width: 95%;
+	width: 98%;
+}
+#barHeader{
+	background-color: #e6e6e6;
 }

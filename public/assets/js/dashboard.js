@@ -195,28 +195,29 @@ $(document).ready(function(){
 
 
 	// === Event Timeline Chart ===
-	// $.get( window.location.origin + '/api/dashboard/event/timeline').done(function(data){
+	$.get( window.location.origin + '/api/dashboard/event/timeline').done(function(data){
 		
-	// 	var chart = c3.generate({
-	// 	    data: {
-	// 	        columns: [
-	// 	            ['Events', 30, 200, 100, 400, 150, 250]
-	// 	        ],
-	// 	        type: 'area-spline',
-	// 	    },
-	// 	    color: {
-	// 	    	pattern:['#62a3c4']
-	// 	    },
-	// 	    axis: {
-	// 	        y: {show: false}
-	// 	    },
-	// 	    legend: {
- //  				show: false
-	// 		}
-	// 	});
+		var chart = c3.generate({
+		    data: {
+		        columns: [
+		            ['Events', 30, 200, 100, 400, 150, 250]
+		        ],
+		        type: 'area-spline',
+		    },
+		    color: {
+		    	pattern:['#62a3c4']
+		    },
+		    axis: {
+		    	x: {show: false},
+		        y: {show: false}
+		    },
+		    legend: {
+  				show: false
+			}
+		});
 
 
-	// }); //end of Event Timeline
+	}); //end of Event Timeline
 
 
 
