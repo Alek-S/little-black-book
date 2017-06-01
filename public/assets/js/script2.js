@@ -10,10 +10,11 @@ $( document ).ready(function(){
         console.log(mates);
 
         mates.forEach(function(entry){
-
+            
+            getAvg(entry.id);
             var div = "<div class='mate' id='" + entry.id + "'>";
             div += "     <div class='mHead new'>";
-            div +="        <a href=\"#\">"+entry.firstName + " " + entry.lastName+"</a><p>"+entry.platform+"  |  Avg Rating: <span class='avgRating'></span></p>"
+            div +="        <a href=\"#\">"+entry.firstName + " " + entry.lastName+"</a><p>"+entry.platform+"  |  Avg Rating: <span class='avgRating avgRating"+entry.id+"'></span></p>"
             div +="    </div>"
             div +=""
             div +="    <div class='events'>"
@@ -131,6 +132,28 @@ $( document ).ready(function(){
             });
         });
 
+        function getAvg(mateId){
+            $.get(window.location.origin + '/api/rating/' + mateId, function(ratingRes){
+                console.log('Rating',ratingRes[0].avg);
+                var currentRating = undefined;
+
+                if(ratingRes[0].avg === 1){
+                    currentRating = h1;
+                } else if(ratingRes[0].avg === 2){
+                    currentRating = h2;
+                } else if(ratingRes[0].avg === 3){
+                    currentRating = h3;
+                }else if(ratingRes[0].avg === 4){
+                    currentRating = h4;
+                }else if(ratingRes[0].avg === 5){
+                    currentRating = h5;
+                } else{
+                    currentRating = 'N/A'
+                }
+                console.log('.avgRating' + mateId);
+                $('.avgRating' + mateId).html(currentRating);
+            });
+        }//end of function
     });
 
 }); //end of .ready()
