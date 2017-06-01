@@ -8,7 +8,7 @@ html{
 
 body{
     /*background:url('../images/user.jpg')  no-repeat center center fixed;*/
-    background: url(), linear-gradient(to left, #7b4397, #dc2430);
+    background: linear-gradient(to left, #7b4397, #dc2430);
     /*background-color: #f2f2f2;*/
     -webkit-background-size:;
     background-size: cover;
@@ -131,6 +131,7 @@ button{
     padding-left: 10px;
     padding-right: 10px;
     border: none;
+    margin-top: 15px;
 }
 button:hover{
     background: linear-gradient(to bottom, #cce8ef 0%, #a7d5e2 41%, #73bace 100%);

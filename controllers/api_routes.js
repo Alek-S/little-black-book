@@ -34,6 +34,15 @@ module.exports = function(app) {
 		});
 	});
 
+	//get avg rating for mate
+	app.get('/api/rating/:mateId', (req,res)=>{
+
+		db.sequelize.query("Select AVG( EVENTS.rating) AS avg FROM Users INNER JOIN Events ON Users.id = Events.UserId WHERE Users.id ='"+req.session.userId+"' AND events.MateId = '"+req.params.mateId+"';").then((result)=>{
+			res.json(result[0]);
+		});
+
+	});
+
 
 	//get events for user and mate
 	app.get('/api/events/:mateID', (req,res)=>{
