@@ -37,8 +37,8 @@ module.exports = function(app) {
 			res.sendFile(path.join(__dirname, '../public/login.html'));
 		}else{
 			req.session.destroy;
-			res.sendFile(path.join(__dirname, '../public/login.html'));
-			// res.redirect('/user');
+			req.session.loggedIn = undefined;
+			res.redirect('/');
 		}
 	});
 
