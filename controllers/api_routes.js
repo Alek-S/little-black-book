@@ -37,7 +37,7 @@ module.exports = function(app) {
 	//get avg rating for mate
 	app.get('/api/rating/:mateId', (req,res)=>{
 
-		db.sequelize.query("Select AVG( Events.rating) AS avg FROM Users INNER JOIN Events ON Users.id = Events.UserId WHERE Users.id ='"+req.session.userId+"' AND events.MateId = '"+req.params.mateId+"';").then((result)=>{
+		db.sequelize.query("Select AVG( Events.rating) AS avg FROM Users INNER JOIN Events ON Users.id = Events.UserId WHERE Users.id ='"+req.session.userId+"' AND Events.MateId = '"+req.params.mateId+"';").then((result)=>{
 			res.json(result[0]);
 		});
 
