@@ -24,6 +24,17 @@ module.exports = function(app) {
 		}
 	});
 
+	//get current session user 
+	app.get('/api/current/user', (req, res)=>{
+		
+		db.User.findOne({
+			where: { id: req.session.userId}
+		}).then( (result)=>{
+			res.json(result.firstName);
+		});
+
+	});
+
 	//get mates for user
 	app.get('/api/mates/user', (req,res)=>{
 

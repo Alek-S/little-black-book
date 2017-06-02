@@ -6,9 +6,13 @@ $( document ).ready(function(){
     var h4 = '&#x2764 &#x2764 &#x2764 &#x2764';
     var h5 = '&#x2764 &#x2764 &#x2764 &#x2764 &#x2764';
 
+    $.get(window.location.origin + '/api/current/user', function(userName){
+        console.log(userName);
+        $('#headerUser').html(userName);
+    });
+
     $.get(window.location.origin + '/api/mates/user', function(mates){
         console.log(mates);
-
         mates.forEach(function(entry){
             
             getAvg(entry.id);
