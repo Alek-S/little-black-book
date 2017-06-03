@@ -7,12 +7,12 @@ $( document ).ready(function(){
     var h5 = '&#x2764 &#x2764 &#x2764 &#x2764 &#x2764';
 
     $.get(window.location.origin + '/api/current/user', function(userName){
-        console.log(userName);
+        
         $('#headerUser').html(userName);
     });
 
     $.get(window.location.origin + '/api/mates/user', function(mates){
-        console.log(mates);
+        
         mates.forEach(function(entry){
             
             getAvg(entry.id);
@@ -69,6 +69,7 @@ $( document ).ready(function(){
                     events.forEach(function(entry){
                         var currentRating = undefined;
                         averagRatingArr.push(entry.rating);
+                        console.log(JSON.stringify(entry,null,2));
 
                         if(entry.rating === 1){
                             currentRating = h1;
@@ -87,13 +88,28 @@ $( document ).ready(function(){
                         divEvent +="     <p class='when'><strong>When: </strong> "+ entry.when +"</p>";
                         divEvent +="     <p class='where'><strong>Where:</strong>"+ entry.where +"</p>";
                         divEvent +="     <p><strong>Rating:</strong> <span class='rating'>"+ currentRating +"</span></p>";
+                        divEvent +="     <a class='trash' href='#'><img  src='assets/images/trash.svg' height='20' id="+entry.id+" ></a>";
                         divEvent +="</div> ";
 
                         $( '#'+currentMate).children('.events').append(divEvent);
+
+
                     });
 
+                    //delete event
+                        $('.trash').on('click', function(){
+                            event.preventDefault();
+                            
+                            var eventToTrash = $(this).children('img').attr('id');
+                            
+                            $.post(window.location.origin + '/delete/event/' + eventToTrash, function(response){
+                                location.reload();
+                            });
+
+                        });
+
                     var averagRating = _.mean(averagRatingArr);
-                    console.log( averagRating);
+                    
                     $(this).closest('.avgRating').html('alek');
                 });
             }
@@ -101,6 +117,7 @@ $( document ).ready(function(){
 
             $( '#'+currentMate).children('.events').slideToggle();
         });
+
 
         $('#mNew a').on('click', function(){
             event.preventDefault();

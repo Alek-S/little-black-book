@@ -144,12 +144,34 @@ module.exports = function(app) {
 	});
 
 	//delete mate
-	app.delete('/api/mate/:id', (req, res)=>{
-		db.Mate.destroy({
-			where: { id: req.params.id }
-		}).then( (result)=>{
-			res.json(result);
-		});
+	// app.delete('/api/mate/:id', (req, res)=>{
+	// 	db.Mate.destroy({
+	// 		where: { id: req.params.id }
+	// 	}).then( (result)=>{
+	// 		res.json(result);
+	// 	}).catch( (err)=> {
+ // 			console.log(err);	
+	// 	});;
+	// // });
+
+	//delete event
+	app.post('/delete/event/:id', (req, res)=>{
+		console.log('Event Delete requested');
+
+		if(req.session.loggedIn === true){
+
+			db.Event.destroy({
+				where: { id: req.params.id }
+			}).then( (result)=>{
+				res.send('success');
+			}).catch( (err)=> {
+	 			console.log(err);	
+			});
+
+		}else{
+			res.send('not logged in');
+		}
+
 	});
 
 	//check password
