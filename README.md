@@ -25,4 +25,5 @@ And when you find that perfect match, you'll have a record of all those special 
 - C3.js
 - Express-Session
 - Bcrypt
+- Helmet
 - Heroku
